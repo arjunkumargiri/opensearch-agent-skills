@@ -112,7 +112,6 @@
     "rationale": "Key rule: do not describe Amazon OpenSearch Serverless as scaling to zero"
   },
   {
-<<<<<<< aoss-provisioning-on-claude-code
     "id": "aoss-provision-credentials-first",
     "skill": "aoss-nextgen-provisioning",
     "prompt": "Create a new OpenSearch Serverless collection called my-search-app in us-east-1",
@@ -167,7 +166,8 @@
     "rule": "Must show a confirmation prompt listing resources before deleting",
     "criteria": "The response must list the resources that will be deleted and require explicit user confirmation (typing the group name) before executing any delete commands. It must not proceed with deletion without showing what will be removed and getting confirmation.",
     "rationale": "Deprovision flow requires typed confirmation of group name before destructive actions"
-=======
+  },
+  {
     "id": "log-analytics-upstream-lookup-on-unknown",
     "skill": "log-analytics",
     "prompt": "How do I use the 'graphLookup' command in PPL to traverse a graph structure?",
@@ -198,6 +198,5 @@
     "rule": "Must validate the emitted PPL query against the cluster or disclose it is unverified",
     "criteria": "The response must either (1) run the query against _plugins/_ppl to validate it, or (2) explicitly state that the query has not been verified against the cluster. It must not present a PPL query as correct without mentioning verification status.",
     "rationale": "Key rule: verify queries when an endpoint is available, or disclose unverified status"
->>>>>>> main
   }
 ]
