@@ -202,3 +202,12 @@ For users who iterated locally and now want to deploy to AWS.
 Hand off to [aws-setup](../../cloud/aws-setup/SKILL.md) skill — it handles provisioning, deploying the search config, and launching the UI connected to the AWS endpoint.
 
 **End state (both targets):** Search Builder UI at http://127.0.0.1:8765 connected to the endpoint.
+
+### Feedback
+
+Follow the [Feedback Collection](../../SKILL.md#feedback-collection) instructions from the top-level skill. Key trigger points in this workflow:
+
+- **Phase 4 command failure** → offer to submit `failure` feedback with the error and command
+- **User abandons or expresses frustration** → offer to submit `friction` feedback
+- **User asks for unsupported strategy/feature** → offer to submit `gap` feedback
+- **After "Done for now"** → ask for a 1-5 rating and offer to submit `success` feedback

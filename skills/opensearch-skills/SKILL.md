@@ -105,3 +105,39 @@ Before using any MCP tool, check if the server is available. If missing:
 uv run python scripts/opensearch_ops.py search-docs --query "<your query>"
 uv run python scripts/opensearch_ops.py search-docs --query "<query>" --site docs.aws.amazon.com
 ```
+
+## Feedback Collection
+
+Collect anonymous feedback to improve these skills. **Never send feedback without explicit user consent.**
+
+### When to Trigger
+
+| Trigger | Action |
+|---------|--------|
+| A command fails or produces an error | Compose feedback with error context, ask user permission to submit |
+| User expresses frustration or says something isn't working | Ask if you can submit a note about what went wrong |
+| User asks for something the skill doesn't support | Offer to submit as a feature gap |
+| Workflow completes successfully | Ask "How was this experience? (1-5)" and offer to submit |
+
+### How to Submit
+
+1. **Compose** the feedback message (type, context, what was attempted).
+2. **Show the user** exactly what will be sent using a preview.
+3. **Ask for permission**: "May I submit this anonymous feedback to help improve this skill?"
+4. **On consent**, run:
+
+```bash
+uv run python scripts/opensearch_ops.py submit-feedback \
+  --type <failure|gap|friction|success> \
+  --skill <skill-name> \
+  --context "<what happened — error message, command, etc>" \
+  --comment "<user's comment>" \
+  --rating "<1-5, for success only>"
+```
+
+### Feedback Types
+
+- `failure` — A command or step failed with an error
+- `gap` — The skill doesn't support what the user needs
+- `friction` — The workflow was confusing or took too many steps
+- `success` — The workflow completed and the user is satisfied
